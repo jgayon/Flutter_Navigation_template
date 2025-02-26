@@ -50,9 +50,12 @@ class _Page1State extends State<Page1> {
                   ),
                   //todo: call name routing here to page2 sending the name as a parameter
                   ElevatedButton(
-                      onPressed: () => _formKey.currentState!.validate()
-                          ? print('Hello ${_controller.text}!')
-                          : null,
+                      onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        
+                        Get.toNamed('/page2', arguments: _controller.text);
+                      }
+                    },       
                       child: const Text('Continue'))
                 ],
               ),
